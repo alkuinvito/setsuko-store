@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/b2d09525f6.js" crossorigin="anonymous"></script>
+    <script src="./index.js"></script>
+    <link rel="icon" type="image/x-icon" href="./static/assets/setsuko.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <title>setsuko</title>
+</head>
+<body>
+    <div class="header">
+        <div class="container hd-main">
+            <img src="./static/assets/setsuko.png">
+            <div id="hd-accordion">
+                <span id="hd-title" class="title animate__swing">setsuko</span>
+                <div id="hd-finder">
+                    <div class="hd-category">
+                        <span id="hd-category-selector"><span id="hd-category-name">Cat</span><i class="fa-solid fa-chevron-down"></i></span>
+                    </div>
+                    <div class="hd-search">
+                        <input type="text" name="q" id="hd-query" placeholder="I want to find ...">
+                        <button id="hd-submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </div>
+                </div>
+            </div>
+            <span class="login-button"><a href="javascript:void()"><i class="fa-solid fa-arrow-right-to-bracket"></i>Login</a></span>
+        </div>
+        <div id="category-wrapper">
+            <ul class="hd-category-wrapper container">
+                <li class="hd-category-content"><img src="./static/assets/cat-background.jpg"><div class="category-overlay" id="ct-cat">Cat</div></li>
+                <li class="hd-category-content"><img src="./static/assets/dog-background.jpg"><div class="category-overlay" id="ct-dog">Dog</div></li>
+                <li class="hd-category-content"><img src="./static/assets/fish-background.jpg"><div class="category-overlay" id="ct-fish">Fish</div></li>
+            </ul>
+        </div>
+    </div>
+    <div class="wp-main">
+        <div class="container">
+            <div class="banner">
+                <h1>Get only the best for your little companion.</h1>
+                <div class="bn-search">
+                    <span class="bn-text">Find "<span id="bn-query">cat food</span>"</span>
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div>
+            <div class="display">
+                <div class="ds-card">
+                    <img src="./static/assets/excel-tuna-500gr.jpg">
+                    <span>Excel Tuna 500gr</span>
+                </div>
+                <div class="ds-card hide">
+                    <img src="./static/assets/dog-chews-bone.jpg">
+                    <span>Dog Chews Bone</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <span id="pd-total">Showing <span id="pd-number">0</span> product(s)</span>
+        <ul class="products">
+
+        </ul>
+    </div>
+</body>
+</html>

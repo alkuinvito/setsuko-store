@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/b2d09525f6.js" crossorigin="anonymous"></script>
+    <script src="index.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Product - setsuko</title>
+</head>
+<body>
+    <div class="header">
+        <div class="container hd-main">
+            <img src="../static/assets/setsuko.png">
+            <div class="hd-search">
+                <input type="text" name="q" id="hd-query" placeholder="I want to find ...">
+                <button id="hd-submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+            <span class="login-button"><a href="javascript:void()"><i class="fa-solid fa-arrow-right-to-bracket"></i>Login</a></span>
+        </div>
+    </div>
+    <div id="peek-container" class="container">
+        <img src="" alt="Product image" id="peek-img">
+        <div id="peek-info">
+            <div id="peek-detail">
+                <h3 id="peek-title"></h3>
+                <span id="peek-price"></span>
+                <p id="peek-desc"></p>
+            </div>
+            <a href="javascript:void()" id="peek-buy" class="sweep"><i class="fa-solid fa-cart-plus"></i>Add to cart</a>
+        </div>
+    </div>
+</body>
+</html>
