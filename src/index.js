@@ -1,5 +1,6 @@
 let i=0, j=0, k=-1;
 const card_title = ["Excel Tuna 500gr", "Dog Chews Bone"];
+const host = "http://setsuko.store/"
 
 const fadeIn = [
   { opacity: '0' },
@@ -39,7 +40,7 @@ function typing(text_dom, card_dom) {
 }
 
 function getProduct(key, value, callback) {
-  fetch("../api/product.php?"+key+"="+value, {method: 'GET', headers: {}})
+  fetch(host + "api/product.php?"+key+"="+value, {method: 'GET', headers: {}})
     .then(response => response.json())
     .then((data) => callback(data))
     .catch(err => console.error(err));
@@ -53,10 +54,10 @@ function renderProduct(data) {
     const productLink = document.createElement("a");
     const productCard = document.createElement("li");
     productCard.className = "pd-card";
-    productLink.setAttribute("href", "./product/?peek="+product.productId);
+    productLink.setAttribute("href", "./product/?peek=" + product.productId);
     let pd_image = document.createElement("div");
     pd_image.className = "pd-img";
-    pd_image.style.backgroundImage = "url('./static/assets/"+product.productImg+"')";
+    pd_image.style.backgroundImage = "url('" + host + "static/assets/" + product.productImg + "')";
     let pd_info = document.createElement("div");
     pd_info.className = "pd-info";
     let pd_name = document.createElement("h3");
