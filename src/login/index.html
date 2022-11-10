@@ -11,14 +11,15 @@
 </head>
 <body>
     <div class="container">
-        <div class="wrapper banner"></div>
-        <div class="wrapper login">
+        <div class="banner"></div>
+        <div class="auth">
             <div class="fm-selector">
-                <a href="javascript:void(0)" class="active">Log In</a>
-                <a href="javascript:void(0)">Sign Up</a>
+                <a href="javascript:toggleForm()" class="fm-label active">Log In</a>
+                <a href="javascript:toggleForm()" class="fm-label">Sign Up</a>
             </div>
-            <div class="fm-selector-accent"></div>
+            <div id="fm-selector-accent"></div>
             <form id="fm-auth">
+                <span id="message" class="hide"><i class="fa-solid fa-circle-exclamation"></i></span>
                 <div class="fm-input">
                     <i class="fa-solid fa-user"></i>
                     <input type="text" name="username" id="username" placeholder="Username">
