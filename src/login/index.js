@@ -29,22 +29,23 @@ function toggleForm() {
             elem.classList.toggle("active");
         }
         accent.style.transform = "translate(0, -100%)";
-        submitLabel.innerHTML = "Signup";
+        submitLabel.innerHTML = "Login";
         isSignIn = true;
     }
 }
 
 form.addEventListener("submit", (event) => {
     event.preventDefault();
-    submitLabel.classList.add("hide");
-    loader.classList.remove("hide");
     message.classList.add("hide");
     if(username.value != "" && password.value != "") {
+        submitLabel.classList.add("hide");
+        loader.classList.remove("hide");
+        submitButton.disabled = true;
         fetch(host + "/api/" + handler, {method: "POST", headers: {}, body:
-            new URLSearchParams({
-                username: username.value,
-                password: password.value
-            })
+        new URLSearchParams({
+            username: username.value,
+            password: password.value
+        })
         })
         .then(response => response.json())
         .then(response => {
@@ -65,12 +66,13 @@ form.addEventListener("submit", (event) => {
                 }
             }
 
+            submitLabel.classList.remove("hide");
+            loader.classList.add("hide");
+            submitButton.disabled = false;
         })
     } else {
         message.textContent = "Username and password can not be empty";
         message.classList.remove("hide");
     }
 
-    submitLabel.classList.remove("hide");
-    loader.classList.add("hide");
 })
