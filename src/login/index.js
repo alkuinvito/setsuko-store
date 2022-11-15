@@ -1,46 +1,78 @@
-var submit = document.getElementById("submit");
-var r_submit = document.getElementById("r_submit");
-var username = document.getElementById("username");
-var password = document.getElementById("password");
-var r_username = document.getElementById("r_username");
-var r_password = document.getElementById("r_password");
-var blocker = document.getElementById("blocker");
-var pop_message = document.getElementById("pop_message");
+const host = "http://setsuko.store/";
 
+const form = document.getElementById("fm-auth");
+const username = document.getElementById("username");
+const password = document.getElementById("password");
+const submitButton = document.getElementById("btnSubmit");
+const submitLabel = document.getElementById("labelSubmit");
+const accent = document.getElementById("fm-selector-accent");
+const labels = document.getElementsByClassName("fm-label");
+const message = document.getElementById("message");
+const loader = document.querySelector(".fa-spinner");
 
-function httpGetAsync(theUrl, callback, str1, str2) {
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', theUrl, true);
-    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    xhr.onload = function () {
-        callback(this.responseText);
-    };
-    xhr.send('username=' + str1 + '&password=' + str2);
-};
+let isSignIn = true;
+let handler = "login.php";
 
-function popup(message) {
-    blocker.classList.remove("hide");
-    pop_message.innerHTML=message;
-    blocker.addEventListener("click", function() {
-        blocker.classList.add("hide");
-    });
-}
-
-submit.addEventListener("click", function() {
-    httpGetAsync("./login.php", function(evt) {
-        if(evt=="FALSE") {
-            console.log("Username and/or password incorrect.");
-        } else if(evt=="TRUE") {
-            console.log("200");
-            window.location.replace("./member/");
+function toggleForm() {
+    message.classList.add("hide");
+    if(isSignIn) {
+        handler = "register.php";
+        for(elem of labels) {
+            elem.classList.toggle("active");
         }
-    }, username.value, password.value);
-});
-r_submit.addEventListener("click", function() {
-    httpGetAsync("./register.php", console.log, r_username.value, r_password.value);
-});
-
-function toggleBox() {
-    document.getElementById("loginBox").classList.toggle("hide");
-    document.getElementById("registerBox").classList.toggle("hide");
+        accent.style.transform = "translate(100%, -100%)";
+        submitLabel.innerHTML = "Signup";
+        isSignIn = false;
+    } else {
+        handler = "login.php";
+        for(elem of labels) {
+            elem.classList.toggle("active");
+        }
+        accent.style.transform = "translate(0, -100%)";
+        submitLabel.innerHTML = "Login";
+        isSignIn = true;
+    }
 }
+
+form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    message.classList.add("hide");
+    if(username.value != "" && password.value != "") {
+        submitLabel.classList.add("hide");
+        loader.classList.remove("hide");
+        submitButton.disabled = true;
+        fetch(host + "/api/" + handler, {method: "POST", headers: {}, body:
+        new URLSearchParams({
+            username: username.value,
+            password: password.value
+        })
+        })
+        .then(response => response.json())
+        .then(response => {
+            if(response.success === true) {
+                if(isSignIn) {
+                    localStorage.setItem("token", response.token);
+                    window.location.href = "../";
+                } else {
+                    toggleForm();
+                }
+            } else {
+                if(isSignIn) {
+                    message.textContent = "Incorrect username or password";
+                    message.classList.remove("hide");
+                } else {
+                    message.textContent = "Username is already exist";
+                    message.classList.remove("hide");
+                }
+            }
+
+            submitLabel.classList.remove("hide");
+            loader.classList.add("hide");
+            submitButton.disabled = false;
+        })
+    } else {
+        message.textContent = "Username and password can not be empty";
+        message.classList.remove("hide");
+    }
+
+})

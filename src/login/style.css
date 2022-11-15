@@ -1,112 +1,125 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400&family=Poppins:wght@300;400;600&display=swap');
 :root {
-    --st-dark-green: #165930;
-    --st-light-green: #48bd75;
+  --green: #42b785;
+  --pink: #b74274;
+  --dark-pink: #6e2846;
+  --purple: #4b42b7;
+  --dark-purple: #302a75;
 }
-
 html, body {
-    margin: 0;
-    padding: 0;
-    font-family: "Roboto", sans-serif;
+  background-color: #f3ecef;
 }
-
-.container {
-    height: 480px;
-    max-width: 1000px;
-    margin: auto;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    display: grid;
-    grid-template-columns: repeat(2, 500px);
-    justify-content: center;
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 8px;
-    border-radius: 16px;
+html, body, a, ul, li {
+  text-decoration: none;
+  color: #000000;
+  margin: 0;
+  font-family: 'Fredoka', sans-serif;
+  list-style: none;
+  padding: 0;
 }
-
-.login, .register {
-    display: grid;
-    justify-content: center;
-    align-content: center;
-    border-radius: 0 16px 16px 0;
-}
-
-.wrapper h1 {
-    margin: 0px 0 32px 0;
-    font-weight: 400;
-}
-
-.wrapper span {
-    font-size: 11pt;
-    margin: 10px 0 0 4px;
-}
-
-form {
-    display: grid;
-}
-
-input {
-    font-size: 12pt;
-    margin: 4px;
-    padding: 8px 10px;
-}
-
-input[type=text], input[type=password] {
-    border: solid 1px #ecf1ee;
-    background-color: #ecf1ee;
-    border-radius: 4px;
-}
-
-input[type=text]:focus, input[type=password]:focus {
-    border: solid 1px var(--st-dark-green);
-    background-color: #ffffff;
-    outline: 0;
-}
-
-input[type=button] {
-    width: 320px;
-    margin-top: 16px;
-    background-color: var(--st-light-green);
-    color: #ffffff;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
-}
-
-input[type=button]:hover {
-    background-color: var(--st-dark-green);
-}
-
-.banner {
-    background-image: url("./assets/cat.jpg");
-    background-size: contain;
-    border-radius: 16px 0 0 16px;
-}
-
 .hide {
-    display: none !important;
+  display: none !important;
 }
-
-#blocker {
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: grid;
-    justify-content: center;
-    align-content: center;
-    position: fixed;
+.container {
+  height: 480px;
+  max-width: 1000px;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 500px);
+  justify-content: center;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 8px;
+  border-radius: 16px;
+  background-color: #ffffff;
 }
-
-.popup {
-    width: 280px;
-    height: 145px;
-    background-color: #ffffff;
-    border-radius: 12px;
+.banner {
+  margin: 16px;
+  border-radius: 8px;
+  background-image: url("../static/assets/cat.jpg");
+  background-size: contain;
 }
-
-#pop_message {
-    background-color: #ffffff;
+.active {
+  color: #ffffff !important;
+  z-index: 99;
+}
+.auth {
+  width: 360px;
+  margin: auto;
+  padding-right: 16px;
+}
+.fm-selector {
+  height: 40px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #dcdcdc;
+  border-radius: 8px;
+}
+.fm-selector a {
+  width: 100%;
+  text-align: center;
+  font-size: 14pt;
+  color: #a6a6a6;
+}
+#fm-selector-accent {
+  height: 40px;
+  width: 50%;
+  transform: translateY(-100%);
+  background-color: var(--pink);
+  border-radius: 8px;
+  transition: transform .6s ease-out;
+}
+#message {
+  padding: 6px;
+  font-size: 10pt;
+  color: #721c24;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 8px;
+}
+#message i {
+  margin-right: 4px;
+}
+.fm-input {
+  margin: 12px 0;
+  padding: 6px 10px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #c4c4c4;
+  border-radius: 12px;
+}
+.fm-input i {
+  color: #797979;
+  margin: 0 4px;
+  font-size: 11pt;
+}
+input {
+  width: 100%;
+  padding: 4px;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 12pt;
+  border: none;
+}
+input:focus {
+  outline: none;
+}
+#btnSubmit {
+  width: 100%;
+  margin-top: 12px;
+  padding: 10px;
+  background-color: var(--purple);
+  font-family: 'Fredoka', sans-serif;
+  font-size: 12pt;
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color .4s linear;
+}
+#btnSubmit:hover {
+  background-color: var(--dark-purple);
 }

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/b2d09525f6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
+    <title>setsuko - Login</title>
+</head>
+<body>
+    <div class="container">
+        <div class="banner"></div>
+        <div class="auth">
+            <div class="fm-selector">
+                <a href="javascript:toggleForm()" class="fm-label active">Log In</a>
+                <a href="javascript:toggleForm()" class="fm-label">Sign Up</a>
+            </div>
+            <div id="fm-selector-accent"></div>
+            <form id="fm-auth">
+                <span id="message" class="hide"></span>
+                <div class="fm-input">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" name="username" id="username" placeholder="Username" autocomplete="off">
+                </div>
+                <div class="fm-input">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" name="password" id="password" placeholder="Password" autocomplete="off">
+                </div>
+                <button id="btnSubmit">
+                    <span id="labelSubmit">Login</span>
+                    <i class="fa-solid fa-spinner fa-spin hide"></i>
+                </button>
+            </form>
+        </div> 
+    </div>
+    <script src="index.js" type="text/javascript"></script>
+</body>
+</html>
