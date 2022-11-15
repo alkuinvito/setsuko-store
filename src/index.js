@@ -148,4 +148,7 @@ window.onload = () => {
     console.log(hd_query.value);
     searchProduct(hd_query.value);
   });
+  if(localStorage.getItem("token") != null) {
+    let token = localStorage.getItem("token");
+  }
 }
