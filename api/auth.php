@@ -70,7 +70,21 @@
 
                 if($count==1){
                     $token = Token::generate($username);
-                    return $token;
+                    $data = $result->fetch_assoc();
+
+                    $token = generateToken($userId);
+                    $profile = array(
+                        'id'=>$data['userId'],
+                        'name'=>$data['userName'],
+                        'image'=>$data['userImg']
+                    );
+
+                    $response = array(
+                        'status'=>TRUE,
+                        'profile'=>$profile,
+                        'token'=>$token
+                    );
+                    return $response;
                 }
             }
             return FALSE;
