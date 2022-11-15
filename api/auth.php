@@ -84,6 +84,7 @@
                         'profile'=>$profile,
                         'token'=>$token
                     );
+                    $result->free_result();
                     return $response;
                 }
             }
