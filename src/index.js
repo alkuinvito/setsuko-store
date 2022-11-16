@@ -1,6 +1,6 @@
 let i=0, j=0, k=-1;
 const card_title = ["Excel Tuna 500gr", "Dog Chews Bone"];
-const host = "https://setsuko.store/"
+const host = "http://setsuko.store/"
 
 const fadeIn = [
   { opacity: '0' },
@@ -40,7 +40,7 @@ function typing(text_dom, card_dom) {
 }
 
 function getProduct(key, value, callback) {
-  fetch("https://api.setsuko.store/product.php?"+key+"="+value, {method: 'GET', headers: {}})
+  fetch("http://setsuko.store/api/product.php?"+key+"="+value, {method: 'GET', headers: {}})
     .then(response => response.json())
     .then((data) => callback(data))
     .catch(err => console.error(err));

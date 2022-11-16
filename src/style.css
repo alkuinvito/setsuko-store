@@ -36,7 +36,8 @@ html, body, a, ul, li {
   justify-content: space-between;
 }
 .hd-main img {
-  width: 36px;
+  width: 64px;
+  height: 64px;
 }
 #hd-accordion {
   max-height: 64px;
