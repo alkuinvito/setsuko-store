@@ -20,7 +20,7 @@ function toggleForm() {
         for(elem of labels) {
             elem.classList.toggle("active");
         }
-        accent.style.transform = "translateX(100%)";
+        accent.style.transform = "translate(100%, -100%)";
         submitLabel.innerHTML = "Signup";
         isSignIn = false;
     } else {
@@ -28,7 +28,7 @@ function toggleForm() {
         for(elem of labels) {
             elem.classList.toggle("active");
         }
-        accent.style.transform = "translateX(0)";
+        accent.style.transform = "translate(0, -100%)";
         submitLabel.innerHTML = "Login";
         isSignIn = true;
     }
@@ -52,6 +52,8 @@ form.addEventListener("submit", (event) => {
             if(response.success === true) {
                 if(isSignIn) {
                     localStorage.setItem("token", response.token);
+                    localStorage.setItem("name", response.profile.name);
+                    localStorage.setItem("image", response.profile.image);
                     window.location.href = "../";
                 } else {
                     toggleForm();

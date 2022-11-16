@@ -104,6 +104,8 @@ window.onload = () => {
   const ct_cat = document.getElementById("ct-cat");
   const ct_dog = document.getElementById("ct-dog");
   const ct_fish = document.getElementById("ct-fish");
+  const buttonLogin = document.querySelector(".login-button");
+  const profile = document.getElementById("profile");
   bn_query.innerHTML = "";
 
   typing(bn_query, ds_cards);
@@ -150,5 +152,9 @@ window.onload = () => {
   });
   if(localStorage.getItem("token") != null) {
     let token = localStorage.getItem("token");
+    buttonLogin.classList.add("hide");
+    document.getElementById("profile-name").textContent = localStorage.getItem("name");
+    document.getElementById("profile-img").src = host +"static/assets/"+localStorage.getItem("image");
+    profile.classList.remove("hide");
   }
 }
