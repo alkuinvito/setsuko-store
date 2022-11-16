@@ -56,6 +56,20 @@
             var_dump($user->signUp($username, "test"));
         }
 
+        public static function sendMail() {
+            self::dumper(__METHOD__);
+            $to = 'hebon24335@pamaweb.com';
+            $subject = 'PHP mail() test';
+            $message = 'PHP mail() test';
+            $headers = array(
+                'From' => 'noreply@setsuko.store',
+                'Reply-To' => 'webmaster@example.com',
+                'X-Mailer' => 'PHP/' . phpversion()
+            );
+            
+            var_dump(mail($to, $subject, $message, $headers));
+        }
+
         public static function runTest() {
             $tests = array(
                 Test::mysqlConnect(),
@@ -65,7 +79,8 @@
                 Test::tokenExtract(),
                 Test::tokenRevoke(),
                 Test::userSignIn(),
-                Test::userSignUp()
+                Test::userSignUp(),
+                Test::sendMail()
             );
 
             foreach($tests as $test) {
