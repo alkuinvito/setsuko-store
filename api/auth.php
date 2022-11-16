@@ -72,7 +72,6 @@
                     $token = Token::generate($username);
                     $data = $result->fetch_assoc();
 
-                    $token = generateToken($userId);
                     $profile = array(
                         'id'=>$data['userId'],
                         'name'=>$data['userName'],
@@ -80,15 +79,14 @@
                     );
 
                     $response = array(
-                        'status'=>TRUE,
+                        'success'=>TRUE,
                         'profile'=>$profile,
                         'token'=>$token
                     );
-                    $result->free_result();
                     return $response;
                 }
             }
-            return FALSE;
+            return array('success'=>FALSE);
         }
 
         public function signUp(string $username, string $password) {

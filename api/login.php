@@ -15,12 +15,9 @@
 
     if($username != '' && is_string($username)) {
         if($username != '' && is_string($username)) {
-            if($token = $user->signIn($username, $password)) {
-                if($token) {
-                    $response = array(
-                        'success'=>TRUE,
-                        'token'=>$token
-                    );
+            if($result = $user->signIn($username, $password)) {
+                if($result['success']) {
+                    $response = $result;
                 }
             }
         }
