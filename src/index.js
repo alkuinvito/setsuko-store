@@ -110,11 +110,11 @@ window.onload = () => {
 
   window.addEventListener("scroll", function () {
     if(document.documentElement.scrollTop > (bn_search.offsetTop-header.clientHeight)) {
-      document.getElementById("hd-title").style.top="-160px";
-      document.getElementById("hd-finder").style.top="-108px";
+      document.getElementById("hd-title").style.transform="translateY(-100%)";
+      document.getElementById("hd-finder").style.transform="translateY(-100%)";
     } else {
-      document.getElementById("hd-title").style.top="0px";
-      document.getElementById("hd-finder").style.top="160px";
+      document.getElementById("hd-title").style.transform="translateY(0%)";
+      document.getElementById("hd-finder").style.transform="translateY(0%)";
     }
   });
 

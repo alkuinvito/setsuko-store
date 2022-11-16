@@ -20,7 +20,7 @@ function toggleForm() {
         for(elem of labels) {
             elem.classList.toggle("active");
         }
-        accent.style.transform = "translate(100%, -100%)";
+        accent.style.transform = "translateX(100%)";
         submitLabel.innerHTML = "Signup";
         isSignIn = false;
     } else {
@@ -28,7 +28,7 @@ function toggleForm() {
         for(elem of labels) {
             elem.classList.toggle("active");
         }
-        accent.style.transform = "translate(0, -100%)";
+        accent.style.transform = "translateX(0)";
         submitLabel.innerHTML = "Login";
         isSignIn = true;
     }
