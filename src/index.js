@@ -160,9 +160,6 @@ window.onload = () => {
     profile.classList.remove("hide");
   }
 
-  function toggleCart() {
-    cartOverlay.classList.toggle("expand");
-  }
   document.getElementById("btnCart").addEventListener("click", toggleCart);  
   document.getElementById("btnClose").addEventListener("click", toggleCart);  
 }
