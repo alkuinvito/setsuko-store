@@ -17,15 +17,15 @@ fetch(host + "api/product.php?peek=" + urlParams.get("peek"), {method: 'GET', he
   .then(response => response.json())
   .then(response => {
     renderProduct(response);
-    window.details = { image: response.productImg, name: response.productName, price: response.productPrice };
+    window.details = { id: urlParams.get("peek"), image: response.productImg, name: response.productName, price: response.productPrice };
   })
   .catch(err => console.error(err));
 
 addButton.addEventListener("click", () => {
-  addItem(host+"/static/assets/", cartList, window.details)
+  addItem(host+"static/assets/", cartList, window.details)
 });
 
-showItem(host+"/static/assets/", cartList);
+showItem(host+"static/assets/", cartList);
 
 document.getElementById("btnCart").addEventListener("click", () => { cartOverlay.classList.toggle("expand") });
 document.getElementById("btnClose").addEventListener("click", () => { cartOverlay.classList.toggle("expand") });
