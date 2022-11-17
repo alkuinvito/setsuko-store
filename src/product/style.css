@@ -60,6 +60,11 @@ html, body, a, ul, li {
   flex-grow: 2;
   text-align: center;
 }
+#ca-list img {
+  width: 64px;
+  height: auto;
+  object-fit: cover;
+}
 .container {
   max-width: 1080px;
   margin: auto;
@@ -115,7 +120,7 @@ html, body, a, ul, li {
   color: #ffffff;
   text-align: center;
   font-size: 32pt;
-  flex-grow: 4;
+  line-height: 40px;
 }
 .login-button {
   align-self: center;

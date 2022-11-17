@@ -1,16 +1,8 @@
-import * as cart from '../../modules/cart.js';
-
 const host = "http://setsuko.store/";
+const cartOverlay = document.getElementById("cart-overlay");
 const cartList = document.getElementById("ca-list");
 const addButton = document.getElementById("peek-buy");
 let details;
-
-function getProduct(key, value, callback) {
-  fetch(host + "api/product.php?" + key + "=" + value, {method: 'GET', headers: {}})
-    .then(response => response.json())
-    .then((data) => callback(data))
-    .catch(err => console.error(err));
-}
   
 function renderProduct(product) {
   document.getElementById("peek-img").src = host + "/static/assets/" + product.productImg;
@@ -21,11 +13,19 @@ function renderProduct(product) {
 
 const params = window.location.search;
 const urlParams = new URLSearchParams(params);
-getProduct("peek", urlParams.get('peek'), data => {
-  cart.renderProduct(data);
-  details = { image: data.productImg, name: data.productName, price: data.productPrice };
-});
-cart.showItem(host, cartList);
+fetch(host + "api/product.php?peek=" + urlParams.get("peek"), {method: 'GET', headers: {}})
+  .then(response => response.json())
+  .then(response => {
+    renderProduct(response);
+    window.details = { image: response.productImg, name: response.productName, price: response.productPrice };
+  })
+  .catch(err => console.error(err));
 
-document.getElementById("btnCart").addEventListener("click", cart.toggleCart);
-document.getElementById("btnClose").addEventListener("click", cart.toggleCart);
+addButton.addEventListener("click", () => {
+  addItem(host+"/static/assets/", cartList, window.details)
+});
+
+showItem(host+"/static/assets/", cartList);
+
+document.getElementById("btnCart").addEventListener("click", () => { cartOverlay.classList.toggle("expand") });
+document.getElementById("btnClose").addEventListener("click", () => { cartOverlay.classList.toggle("expand") });

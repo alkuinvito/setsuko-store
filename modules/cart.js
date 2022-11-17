@@ -1,8 +1,4 @@
-export function toggleCart(elem) {
-    elem.classList.toggle("expand");
-}
-
-export function renderCart(host, list, products) {
+function renderCart(host, list, products) {
     for(data of products) {
         const pdItem = document.createElement("li");
         const pdImg = document.createElement("img");
@@ -23,22 +19,26 @@ export function renderCart(host, list, products) {
     }
 }
 
-export function showItem(host, list) {
+function showItem(host, list) {
     let products = localStorage.getItem("products");
 
-    if(products != null && products != "") {
+    if(products != null) {;
         products = JSON.parse(products);
         renderCart(host, list, products);
-    } else {
-        localStorage.setItem("products", "");
     }
 }
 
-export function addItem(host, list, data) {
-    renderCart(host, list, data);
+function addItem(host, list, data) {
+    let products = localStorage.getItem("products");
+    
+    if(products == null) {
+        data = [data];
+        localStorage.setItem("products", JSON.stringify(data));
+    } else {
+        products = JSON.parse(products);
+        products.push(data);
+        localStorage.setItem("products", JSON.stringify(products));
+    }
 
-    let products = localStorage.getItem("products") != null ? localStorage.getItem("products") : localStorage.setItem("products");
-    products = JSON.parse(products);
-    products.push(data);
-    localStorage.setItem("products", JSON.stringify(products));
+    renderCart(host, list, data);
 }
