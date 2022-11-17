@@ -1,6 +1,4 @@
-import { showItem } from '../../modules/cart';
-
-export {renderCart, showItem, addItem} from '../../modules/cart';
+import * as cart from '../../modules/cart';
 
 const host = "http://setsuko.store/";
 const cartList = document.getElementById("ca-list");
@@ -24,7 +22,10 @@ function renderProduct(product) {
 const params = window.location.search;
 const urlParams = new URLSearchParams(params);
 getProduct("peek", urlParams.get('peek'), data => {
-  renderProduct(data);
+  cart.renderProduct(data);
   details = { image: data.productImg, name: data.productName, price: data.productPrice };
 });
-showItem(host, cartList);
+cart.showItem(host, cartList);
+
+document.getElementById("btnCart").addEventListener("click", cart.toggleCart);
+document.getElementById("btnClose").addEventListener("click", cart.toggleCart);
