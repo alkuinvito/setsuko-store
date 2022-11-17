@@ -169,6 +169,8 @@ html, body, a, ul, li {
 #profile-img {
   width: 32px;
   height: 32px;
+  object-fit: cover;
+  border-radius: 16px;
 }
 #profile-name {
   margin: 0 8px;
@@ -193,8 +195,9 @@ html, body, a, ul, li {
   flex-grow: 4;
 }
 .banner h1 {
-  font-size: 32pt;
   margin: 0 0 24px 0;
+  font-size: 32pt;
+  font-weight: normal;
 }
 .bn-search, .hd-search {
   width: 360px;
