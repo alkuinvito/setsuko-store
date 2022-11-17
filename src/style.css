@@ -18,6 +18,45 @@ html, body, a, ul, li {
 .hide {
   display: none !important;
 }
+.expand {
+  width: 320px !important;
+}
+.hd-nav {
+  display: flex;
+  align-items: center;
+}
+#btnCart {
+  background-color: transparent;
+  color: #ffffff;
+  border: none;
+  font-size: 16pt;
+  margin-right: 12px;
+}
+#cart-overlay {
+  width: 0;
+  height: 100vh;
+  position: fixed;
+  right: 0;
+  top: 72px;
+  box-sizing: border-box;
+  background-color: #f3f3f3;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  transition: width .6s ease-out;
+  z-index: 99;
+}
+.ca-container {
+  padding: 12px;
+}
+.ca-nav {
+  display: flex;
+  align-items: center;
+  font-size: 14pt;
+}
+.ca-nav h3 {
+  margin: 0;
+  flex-grow: 2;
+  text-align: center;
+}
 .header {
   background-color: var(--purple);
   position: fixed;
@@ -46,10 +85,9 @@ html, body, a, ul, li {
 }
 #hd-finder, #hd-title {
   height: 48px;
-  transition: all 0.4s ease-out;
+  transition: all 0.24s ease-out;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 #hd-category-selector {
   display: flex;
@@ -142,6 +180,7 @@ html, body, a, ul, li {
   color: #ffffff;
   text-align: center;
   font-size: 32pt;
+  line-height: 36px;
 }
 .login-button {
   align-self: center;

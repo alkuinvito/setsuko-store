@@ -12,6 +12,16 @@
     <title>setsuko</title>
 </head>
 <body>
+    <div id="cart-overlay">
+        <div class="ca-container">
+            <div class="ca-nav">
+                <i id="btnClose" class="fa-solid fa-xmark"></i>
+                <h3>Cart</h3>
+            </div>
+            <ul id="ca-list">
+            </ul>
+        </div>
+    </div>
     <div class="header">
         <div class="container hd-main">
             <img src="./static/assets/setsuko.png">
@@ -29,10 +39,13 @@
                     </div>
                 </div>
             </div>
-            <span class="login-button"><a href="./login/"><i class="fa-solid fa-arrow-right-to-bracket"></i>Login</a></span>
-            <div id="profile" class="hide">
-                <img id="profile-img" src="./static/assets/user.png">
-                <span id="profile-name"></span>
+            <div class="hd-nav">
+                <button id="btnCart"><i class="fa-solid fa-cart-shopping"></i></button>
+                <span class="login-button"><a href="./login/"><i class="fa-solid fa-arrow-right-to-bracket"></i>Login</a></span>
+                <div id="profile" class="hide">
+                    <img id="profile-img" src="./static/assets/user.png">
+                    <span id="profile-name"></span>
+                </div>
             </div>
         </div>
         <div id="category-wrapper">

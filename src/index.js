@@ -106,6 +106,8 @@ window.onload = () => {
   const ct_fish = document.getElementById("ct-fish");
   const buttonLogin = document.querySelector(".login-button");
   const profile = document.getElementById("profile");
+  const cartOverlay = document.getElementById("cart-overlay");
+  const cartList = document.getElementById("ca-list");
   bn_query.innerHTML = "";
 
   typing(bn_query, ds_cards);
@@ -157,4 +159,10 @@ window.onload = () => {
     document.getElementById("profile-img").src = host +"static/assets/"+localStorage.getItem("image");
     profile.classList.remove("hide");
   }
+
+  function toggleCart() {
+    cartOverlay.classList.toggle("expand");
+  }
+  document.getElementById("btnCart").addEventListener("click", toggleCart);  
+  document.getElementById("btnClose").addEventListener("click", toggleCart);  
 }
