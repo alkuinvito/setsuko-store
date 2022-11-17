@@ -160,6 +160,8 @@ window.onload = () => {
     profile.classList.remove("hide");
   }
 
-  document.getElementById("btnCart").addEventListener("click", toggleCart);  
-  document.getElementById("btnClose").addEventListener("click", toggleCart);  
+  document.getElementById("btnCart").addEventListener("click", () => { cartOverlay.classList.toggle("expand") });  
+  document.getElementById("btnClose").addEventListener("click", () => { cartOverlay.classList.toggle("expand") });
+
+  showItem(host+"static/assets/", cartList);
 }

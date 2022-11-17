@@ -34,7 +34,6 @@ html, body, a, ul, li {
 }
 #cart-overlay {
   width: 0;
-  height: 100vh;
   position: fixed;
   right: 0;
   top: 72px;
@@ -45,6 +44,7 @@ html, body, a, ul, li {
   z-index: 99;
 }
 .ca-container {
+  height: 100vh;
   padding: 12px;
 }
 .ca-nav {
@@ -56,6 +56,34 @@ html, body, a, ul, li {
   margin: 0;
   flex-grow: 2;
   text-align: center;
+}
+#ca-list {
+  height: 100%;
+  box-sizing: border-box;
+  overflow: scroll;
+}
+.ca-item {
+  width: 100%;
+  padding: 8px;
+  margin: 12px 0;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  border-radius: 8px;
+}
+.ca-item img {
+  width: 64px;
+  height: 80px;
+  object-fit: cover;
+}
+.ca-info {
+  margin-left: 8px;
+  display: flex;
+  flex-direction: column;
+}
+.ca-info h3 {
+  margin: 0;
 }
 .header {
   background-color: var(--purple);
