@@ -1,4 +1,4 @@
-import * as cart from '../../modules/cart';
+import * as cart from '../../modules/cart.js';
 
 const host = "http://setsuko.store/";
 const cartList = document.getElementById("ca-list");
