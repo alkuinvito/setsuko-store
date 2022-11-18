@@ -100,7 +100,7 @@ html, body, a, ul, li {
 }
 .ca-info div {
   grid-area: qty;
-  justify-self: last baseline;
+  justify-self: end;
   border-radius: 8px;
   background-color: #e6e6e6;
 }

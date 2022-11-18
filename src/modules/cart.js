@@ -99,8 +99,7 @@ async function addItem(host, list, data) {
     
     if(products == null) {
         data.qty = 1;
-        data = [data];
-        localStorage.setItem("products", JSON.stringify(data));
+        localStorage.setItem("products", JSON.stringify([data]));
     } else {
         products = JSON.parse(products);
         let i = 0;
