@@ -94,7 +94,7 @@ function showItem(host, list) {
     }
 }
 
-async function addItem(host, list, data) {
+function addItem(host, list, data) {
     let products = localStorage.getItem("products");
     
     if(products == null) {
