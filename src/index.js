@@ -160,7 +160,11 @@ window.onload = () => {
     profile.classList.remove("hide");
   }
 
-  document.getElementById("btnCart").addEventListener("click", () => { cartOverlay.classList.toggle("expand") });  
+  document.getElementById("btnCart").addEventListener("click", () => {
+    cartList.innerHTML = "";
+    showItem(host+"static/assets/", cartList);
+    cartOverlay.classList.toggle("expand");
+  });  
   document.getElementById("btnClose").addEventListener("click", () => { cartOverlay.classList.toggle("expand") });
 
   showItem(host+"static/assets/", cartList);
