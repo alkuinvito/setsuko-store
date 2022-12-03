@@ -2,6 +2,8 @@ const host = "http://setsuko.store/";
 const cartOverlay = document.getElementById("cart-overlay");
 const cartList = document.getElementById("ca-list");
 const addButton = document.getElementById("peek-buy");
+const buttonLogin = document.querySelector(".login-button");
+const profile = document.getElementById("profile");
 let details;
   
 function renderProduct(product) {
@@ -33,3 +35,10 @@ document.getElementById("btnCart").addEventListener("click", () => {
   cartOverlay.classList.toggle("expand");
 });
 document.getElementById("btnClose").addEventListener("click", () => { cartOverlay.classList.toggle("expand") });
+
+if(localStorage.getItem("token") != null) {
+  buttonLogin.classList.add("hide");
+  document.getElementById("profile-name").textContent = localStorage.getItem("name");
+  document.getElementById("profile-img").src = host +"static/assets/"+localStorage.getItem("image");
+  profile.classList.remove("hide");
+}

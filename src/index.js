@@ -152,8 +152,8 @@ window.onload = () => {
     console.log(hd_query.value);
     searchProduct(hd_query.value);
   });
+
   if(localStorage.getItem("token") != null) {
-    let token = localStorage.getItem("token");
     buttonLogin.classList.add("hide");
     document.getElementById("profile-name").textContent = localStorage.getItem("name");
     document.getElementById("profile-img").src = host +"static/assets/"+localStorage.getItem("image");
